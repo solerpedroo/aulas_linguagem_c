@@ -1,21 +1,22 @@
 // Exercício 1 
+
 /*
-#include <stdio.h>
+1) Sabendo que A=20, B=0, C=1 e D=10, informe se as expressões são Verdadeiras ou Falsas.
+(A – B + D) >= (C)
+(A > (A + D)) || (C > B)
+((A * D) > (C + A)) && (A > B)
+(((A + B) / C) >= 0,9) && ((B * D) < 0)
+((A + C)/D) > 0,3) && (((B –C)<0) ) || ((C+A) > D))
+(((A + C)/D) > 0,3) && ((B –C)<0) )) || ((C+A) > D)
 
-int main()
-{
-    int a=5, b=13, aux;
-    
-    aux = a;
-    a = b;
-    b = aux;
-    
-    printf("O swap ficou B: %i", b);
-    printf("\nO swap ficou A: %i", a);
-
-    return 0;
-}
+1 - verdadeiro
+2 - verdadeiro
+3 - verdadeiro
+4 - falso
+5 - verdadeiro
+6 - verdadeiro
 */
+
 
 // Exercício 2
 /*
@@ -23,23 +24,26 @@ int main()
 
 int main()
 {
-    int segundos, minutos, horas;
-    
+    int idade;
+    float peso;
 
-    printf("Digite a quantidade de segundos: ");
-    scanf("%d", &segundos);
-    
-    minutos = segundos / 60;
-    horas = minutos / 60;
-    
-    printf("\nA quantidade de segundos digitas: %i", segundos);
-    printf("\nA quantidade de minutos convertidos de segundos: %i", minutos);
-    printf("\nA quantidade de horas convertidos de segundos: %i", horas);
-    
+    printf("Digite a sua idade: ");
+    scanf("%i", &idade);
 
+    printf("Digite o seu peso: ");
+    scanf("%f", &peso);
+
+    if ((idade >= 16 && idade <= 69) && (peso >= 50))
+    {
+        printf("Pessoa Apta\n");
+    }
+    else
+    {
+        printf("Pessoa não apta\n");
+    }
     return 0;
 }
-*/
+    */
 
 // Exercício 3
 /*
@@ -47,38 +51,131 @@ int main()
 
 int main()
 {
-    double salario_inicial, porcentagem, salario_ajustado;
+    float nota; 
+    
+    printf("Digite a sua nota: ");
+    scanf("%f", &nota);
 
-    printf("Digite o seu salário atual: R$ ");
-    scanf("%lf", &salario_inicial);
-    
-    printf("Digite o percentual de aumento do seu salário: ");
-    scanf("%lf", &porcentagem);
-    
-    salario_ajustado = salario_inicial * (1 + porcentagem / 100);
-    
-    printf("\nO salário corrigido com a porcentagem informada é igual a : R$ %.2lf", salario_ajustado);
+    if (nota < 5)
+    {
+        printf("Nota insuficiente");
+    }
+    else if (nota >= 5 && nota <= 6.9)
+    {
+        printf("Nota regular");
+    }
+    else if (nota >= 6.9 && nota <= 8.9)
+    {
+        printf("Nota boa");
+    }
+    else
+    {
+        printf("Nota excelente");
+    }
 
     return 0;
-}
-*/
+}*/
 
-// Exercício 4
+// Exercício 4 
+/*
 #include <stdio.h>
 
 int main()
 {
-    double peso, altura, imc;
+    int a, b, c;
+
+    printf("Digite o primeiro valor: ");
+    scanf("%i", &a);
+
+    printf("Digite o segundo valor: ");
+    scanf("%i", &b);
+
+    printf("Digite o terceiro valor: ");
+    scanf("%i", &c);
+
+    if ((a + b > c) && (a + c > b) && (b + c > a))
+    {
+        printf("Triângulo válido\n");
+    }
+    else
+    {
+        printf("Triângulo inválido\n");
+    }
+
+    return 0;
+}*/
+
+// Exercício 5
+
+#include <stdio.h>
+
+int main()
+{
+    int opcao; 
+    float a, b, calculo, aux;
+
+    printf("opção 1: Soma\n");
+    printf("opção 2: Subtração\n");
+    printf("opção 3: Multiplicação\n");
+    printf("opção 4: Divisão\n");
+    printf("Digite a opção: ");
+    scanf("%i", &opcao);
+
+    switch (opcao)
+    {
+    case 1:
+        printf("Digite o primeiro valor: ");
+        scanf("%f", &a);
+        printf("Digite o segundo valor: ");
+        scanf("%f", &b);
+        calculo = a + b;
+        printf("Soma: %.2f\n", calculo);
+        break;
     
-    printf("Digite o peso em KG: ");
-    scanf("%lf", &peso);
+    case 2:
+        printf("Digite o primeiro valor: ");
+        scanf("%f", &a);
+        printf("Digite o segundo valor: ");
+        scanf("%f", &b);
+        if (b > a)
+        {   
+            aux = a;
+            a = b;
+            b = aux;
+        }
+        calculo = a - b;
+        printf("Subtração: %.2f\n", calculo);
+        break;
+
+    case 3:
+        printf("Digite o primeiro valor: ");
+        scanf("%f", &a);
+        printf("Digite o segundo valor: ");
+        scanf("%f", &b);
+        calculo = a * b;
+        printf("Multiplicação: %.2f\n", calculo);
+        break;
+
+    case 4:
+        printf("Digite o primeiro valor: ");
+        scanf("%f", &a);
+        printf("Digite o segundo valor: ");
+        scanf("%f", &b);
+        if (b == 0)
+        {
+            printf("Erro: divisão por zero não é permitida.\n");
+        }
+        else
+        {
+            calculo = a / b;
+            printf("Divisão: %.2f\n", calculo);
+        }
+        break;
     
-    printf("Digite a altura em metros: ");
-    scanf("%lf", &altura);
-    
-    imc = peso / (altura * altura);
-    
-    printf("\nO IMC de acordo com o peso e altura informada é igual a: %.2lf", imc);
+    default:
+        printf("Opção digitada inválida\n");
+        break;
+    }
 
     return 0;
 }
